@@ -24,11 +24,13 @@ def webhook():
 # when an application wants to use this API they need to call a GET request on /getSentiment
 @app.route('/getSentiment', methods=['GET'])
 def sentiment():
-	keyword = request.args.get('keyword')
-	if keyword == "":
+	try:
+		keyword = request.args.get('keyword')
+		ret_dict = se.sentimentSearchAnalysis(keyword)
+		return jsonify({'Return Dictionary' : ret_dict})
+	except:
 		return jsonift({'empty': 'null'})
-	ret_dict = se.sentimentSearchAnalysis(keyword)
-	return jsonify({'Return Dictionary' : ret_dict})
+
 
 
 # def log(message):  # simple wrapper for logging to stdout on heroku
