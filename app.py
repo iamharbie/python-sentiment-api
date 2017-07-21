@@ -27,7 +27,7 @@ def sentiment():
 	try:
 		keyword = request.args.get('keyword')
 		ret_dict = se.sentimentSearchAnalysis(keyword)
-		return jsonify({'Return Dictionary' : ret_dict})
+		return jsonify(ret_dict)
 	except:
 		return jsonify({'empty': 'null'})
 
