@@ -25,9 +25,9 @@ def sentiment():
 
 	# endpoint for processing incoming messaging events
 
-	data = params.get_json()
-	print(data)
+	keyword = request.GET.get('keyword', '')
 	# log(data)
+	print(keyword)
 	return jsonify({'message' : 'it works'})
 
 
