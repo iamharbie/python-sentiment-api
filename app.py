@@ -20,6 +20,8 @@ def root():
 def webhook():
 	return "ok", 200
 
+# this is the main GET method for this application
+# when an application wants to use this API they need to call a GET request on /getSentiment
 @app.route('/getSentiment', methods=['GET'])
 def sentiment():
 
@@ -27,8 +29,8 @@ def sentiment():
 
 	keyword = request.args.get('keyword')
 	# log(data)
-	print(keyword)
-	return jsonify({'message' : 'it works'})
+	ret_dict = se.sentimentSearchAnalysis(keyword)
+	return jsonify({'Return Dictionary' : ret_dict})
 
 
 # def log(message):  # simple wrapper for logging to stdout on heroku
