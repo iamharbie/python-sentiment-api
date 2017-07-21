@@ -13,12 +13,8 @@ app = Flask(__name__)
 def verify():
 	# when the endpoint is registered as a webhook, it must echo back
 	# the 'hub.challenge' value it receives in the query arguments
-	if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-		if not request.args.get("hub.verify_token") == os.environ["VERIFY_TOKEN"]:
-			return "Verification token mismatch", 403
-		return request.args["hub.challenge"], 200
-
-	return "Hello world", 200
+	data = request.get_json()
+	return data['number']
 
 @app.route('/', methods=['POST'])
 def webhook():
@@ -28,13 +24,9 @@ def webhook():
 	data = request.get_json()
 	# log(data)
 	message_to_send = data['number']
-	return send_message(data)
+	return "ok", 200
 
 
-def send_message(data):
-	url = 'https://still-castle-73273.herokuapp.com/'
-	js = json.dumps(data)
-	return js
 
 # def log(message):  # simple wrapper for logging to stdout on heroku
 # 	print str(message)
