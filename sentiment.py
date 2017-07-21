@@ -28,5 +28,5 @@ def sentimentSearchAnalysis(key):
             neg_count += 1
         if analysis.sentiment.polarity == 0:
             neut_count += 1
-    ret_dict = {'keyword': "" + key, 'positive': string(pos_count), 'negative': string(neg_count), 'neutral': string(neut_count)}
+    ret_dict = {'keyword': "" + key, 'positive': str(pos_count), 'negative': str(neg_count), 'neutral': str(neut_count)}
     return ret_dict
