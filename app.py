@@ -6,7 +6,6 @@ import json
 import requests
 from flask import Flask, request, render_template, jsonify
 
-sys.path.insert(0, "sentiment/sentiment.py")
 import sentiment as se
 
 app = Flask(__name__)
@@ -26,8 +25,7 @@ def sentiment():
 
 	# endpoint for processing incoming messaging events
 
-	data = request.get_json()
-	data = data.dumps()
+	data = params.get_json()
 	print(data)
 	# log(data)
 	return jsonify({'message' : 'it works'})
