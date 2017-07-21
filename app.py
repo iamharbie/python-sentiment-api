@@ -23,6 +23,9 @@ def webhook():
 	message_to_send = data['number']
 	return "ok", 200
 
+@app.route('/getSentiment', methods=['GET'])
+def getSentiment():
+	return request
 
 
 # def log(message):  # simple wrapper for logging to stdout on heroku
