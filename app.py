@@ -30,7 +30,6 @@ def sentiment():
 
 	data = request.get_json()
 	# log(data)
-	message_to_send = data['number']
 	return jsonify({'message' : 'it works'})
 
 
