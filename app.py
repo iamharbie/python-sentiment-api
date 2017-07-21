@@ -27,10 +27,14 @@ def webhook():
 
 	data = request.get_json()
 	# log(data)
+	message_to_send = data['number']
+	return send_message(data)
 
 
-	return "ok", 200
-
+def send_message(data):
+	url = 'https://still-castle-73273.herokuapp.com/'
+	js = json.dumps(data)
+	return js
 
 # def log(message):  # simple wrapper for logging to stdout on heroku
 # 	print str(message)
