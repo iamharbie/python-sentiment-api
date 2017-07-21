@@ -24,9 +24,14 @@ def webhook():
 	return "ok", 200
 
 @app.route('/getSentiment', methods=['GET'])
-def getSentiment():
-	all_args = request.args.lists()
-	return jsonify(all_args)
+def sentiment():
+
+	# endpoint for processing incoming messaging events
+
+	data = request.get_json()
+	# log(data)
+	message_to_send = data['number']
+	return jsonify({'message' : 'it works'})
 
 
 # def log(message):  # simple wrapper for logging to stdout on heroku
