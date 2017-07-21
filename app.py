@@ -26,15 +26,15 @@ def webhook():
 	# endpoint for processing incoming messaging events
 
 	data = request.get_json()
-	log(data)
+	# log(data)
 
 
 	return "ok", 200
 
 
-def log(message):  # simple wrapper for logging to stdout on heroku
-	print str(message)
-	sys.stdout.flush()
+# def log(message):  # simple wrapper for logging to stdout on heroku
+# 	print str(message)
+# 	sys.stdout.flush()
 
 if __name__ == '__main__':
 	app.run(debug=True)
