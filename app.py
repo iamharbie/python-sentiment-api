@@ -24,13 +24,9 @@ def webhook():
 # when an application wants to use this API they need to call a GET request on /getSentiment
 @app.route('/getSentiment', methods=['GET'])
 def sentiment():
-
-	# endpoint for processing incoming messaging events
-
 	keyword = request.args.get('keyword')
-	# log(data)
-    if keyword == "":
-        return jsonift({'empty': 'null'})
+	if keyword == "":
+		return jsonift({'empty': 'null'})
 	ret_dict = se.sentimentSearchAnalysis(keyword)
 	return jsonify({'Return Dictionary' : ret_dict})
 
