@@ -29,7 +29,7 @@ def sentiment():
 		ret_dict = se.sentimentSearchAnalysis(keyword)
 		return jsonify({'Return Dictionary' : ret_dict})
 	except:
-		return jsonift({'empty': 'null'})
+		return jsonify({'empty': 'null'})
 
 
 
