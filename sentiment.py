@@ -16,7 +16,7 @@ api = tweepy.API(auth)
 # sentiment analysis function, that takes in a string, calls the api.search method and runs a seniment analysis on the tweet,
 # it prints out how many positive,negative, and neutral tweets there were about that search call in the last 30 tweets
 def sentimentSearchAnalysis(key):
-    public_tweet = api.search(key, count=100)
+    public_tweet = api.search(key, count=1000)
     pos_count = 0
     neg_count = 0
     neut_count = 0
