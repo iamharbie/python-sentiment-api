@@ -13,7 +13,6 @@ auth.set_access_token(access_token, access_token_secret)
 # Tweepy API function
 api = tweepy.API(auth)
 
-keyWord = input("Enter a search string: ")
 # sentiment analysis function, that takes in a string, calls the api.search method and runs a seniment analysis on the tweet,
 # it prints out how many positive,negative, and neutral tweets there were about that search call in the last 30 tweets
 def sentimentSearchAnalysis(key):
