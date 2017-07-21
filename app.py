@@ -14,7 +14,7 @@ def verify():
 	# when the endpoint is registered as a webhook, it must echo back
 	# the 'hub.challenge' value it receives in the query arguments
 	data = request.get_json()
-	return data['number']
+	return data
 
 @app.route('/', methods=['POST'])
 def webhook():
