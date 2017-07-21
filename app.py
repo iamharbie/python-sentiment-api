@@ -4,7 +4,7 @@ import sys
 import json
 
 import requests
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -25,7 +25,8 @@ def webhook():
 
 @app.route('/getSentiment', methods=['GET'])
 def getSentiment():
-	return request
+	all_args = request.args.lists()
+	return jsonify(all_args)
 
 
 # def log(message):  # simple wrapper for logging to stdout on heroku
