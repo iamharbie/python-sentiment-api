@@ -25,6 +25,8 @@ def webhook():
 @app.route('/getSentiment', methods=['GET'])
 def sentiment():
 	keyword = request.args.get('keyword')
+	if keyword.find('_') != -1:
+		keyword = keyword.replace("_", " ")
 	ret_dict = se.sentimentSearchAnalysis(keyword)
 	return jsonify(ret_dict)
 
