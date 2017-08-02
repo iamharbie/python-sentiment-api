@@ -30,3 +30,4 @@ def sentimentSearchAnalysis(key):
             neut_count += 1
     ret_dict = {'keyword': "" + key, 'positive': str(pos_count), 'negative': str(neg_count), 'neutral': str(neut_count)}
     return ret_dict
+
