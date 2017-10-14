@@ -30,5 +30,11 @@ def sentiment():
 	ret_dict = se.sentimentSearchAnalysis(keyword)
 	return jsonify(ret_dict)
 
+@app.route('/getTravelRatings', methods=['GET'])
+def getTravelRatings():
+	lat = request.args.get('lat')
+	lon = request.args.get('long')
+	ret_dict = se.travelRatingSentimentAnalysis(lat, lon)
+
 if __name__ == '__main__':
 	app.run(debug=True)

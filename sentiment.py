@@ -1,4 +1,5 @@
 import tweepy
+from twitter import *
 from textblob import TextBlob
 
 consumer_key = '7VeUl1g66CjKptK3qrb6Fgqgl'
@@ -9,6 +10,7 @@ access_token_secret = 'ucSRkOdSFv04OqvninV7V676Fvo62DiC3Tgd3g9VZuqd3'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
+
 
 # Tweepy API function
 api = tweepy.API(auth)
@@ -31,3 +33,19 @@ def sentimentSearchAnalysis(key):
     ret_dict = {'keyword': "" + key, 'positive': str(pos_count), 'negative': str(neg_count), 'neutral': str(neut_count)}
     return ret_dict
 
+
+def travelRatingSentimentAnalysis(lat, lon):
+    # public_tweet = api.search(k, count=1000)
+    pos_count = 0
+    neg_count = 0
+    neut_count = 0
+    for tweet in 
+        analysis = TextBlob(tweet.text)
+        if analysis.sentiment.polarity > 0:
+            pos_count += 1
+        if analysis.sentiment.polarity < 0:
+            neg_count += 1
+        if analysis.sentiment.polarity == 0:
+            neut_count += 1
+    ret_dict = {'positive': str(pos_count), 'negative': str(neg_count), 'neutral': str(neut_count)}
+    return ret_dict
